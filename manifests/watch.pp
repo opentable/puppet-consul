@@ -48,19 +48,19 @@
 #   Type of data to watch. (Like key, service, services, nodes)
 #
 define consul::watch(
-  $args                          = undef,
-  $datacenter                    = undef,
-  $ensure                        = present,
-  $event_name                    = undef,
-  $handler                       = undef,
-  $key                           = undef,
-  $keyprefix                     = undef,
-  Optional[Boolean] $passingonly = undef,
-  $service                       = undef,
-  $service_tag                   = undef,
-  $state                         = undef,
-  $token                         = undef,
-  $type                          = undef,
+  $args        = undef,
+  $datacenter  = undef,
+  $ensure      = present,
+  $event_name  = undef,
+  $handler     = undef,
+  $key         = undef,
+  $keyprefix   = undef,
+  $passingonly = undef,
+  $service     = undef,
+  $service_tag = undef,
+  $state       = undef,
+  $token       = undef,
+  $type        = undef,
 ) {
   include consul
   $id = $title
