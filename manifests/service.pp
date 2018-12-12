@@ -47,6 +47,12 @@ define consul::service(
   include consul
 
   consul_validate_checks($checks)
+  
+  if versioncmp($consul::version, '1.0.0') >= 0 {
+    $override_key = 'enable_tag_override'
+  } else {
+    $override_key = 'enableTagOverride'
+  }
 
   $basic_hash = {
     'id'                => $id,
@@ -56,7 +62,7 @@ define consul::service(
     'tags'              => $tags,
     'checks'            => $checks,
     'token'             => $token,
-    'enableTagOverride' => $enable_tag_override,
+    $override_key       => $enable_tag_override,
   }
 
   $service_hash = {
